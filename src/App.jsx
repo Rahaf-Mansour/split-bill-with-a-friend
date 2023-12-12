@@ -38,6 +38,7 @@ function App() {
 
   function handleSelectedFriend(friend) { // If we click close => set the new value of the selectedFriend back to null
     setSelectedFriend((selectedFriend) => selectedFriend?.id === friend.id ? null : friend);
+    setShowAddFriend(false);
   }
 
   return (
