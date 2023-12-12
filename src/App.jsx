@@ -25,10 +25,13 @@ const initialFriends = [
 function App() {
 
   return (
-    <div className='sidebar'>
-      <FriendsList />
-      <FormAddFriend />
-      <Button>Add Friend</Button>
+    <div className='app'>
+      <div className='sidebar'>
+        <FriendsList />
+        <FormAddFriend />
+        <Button>Add Friend</Button>
+      </div>
+      <FormSplitBill />
     </div>
   )
 }
@@ -75,6 +78,26 @@ function FormAddFriend() {
       </form>
       <Button>Close</Button>
     </>
+  )
+}
+
+function FormSplitBill() {
+
+  return (
+    <form className='form-split-bill'>
+      <h2>Split a bill with X</h2>
+      <label>💰 Bill value</label>
+      <input type="text" />
+      <label>🧍‍♂️ Your expense</label>
+      <input type="text" />
+      <label>👬 X expense</label>
+      <input type="text" />
+      <label>🤑 Who is paying the bill?</label>
+      <select>
+        <option value="you">You</option>
+        <option value="x">X</option>
+      </select>
+    </form>
   )
 }
 
