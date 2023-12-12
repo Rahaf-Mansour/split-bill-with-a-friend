@@ -36,7 +36,7 @@ Make sure you have Node.js installed, then run:
 npm run dev
 ```
 ## Take A Look
-![image](https://github.com/Rahaf-Mansour/split-bill-with-a-friend/assets/109438456/efe4f2a5-d7dd-4bf2-a1f6-d9acd8a2e997)
+![image](https://github.com/Rahaf-Mansour/split-bill-with-a-friend/assets/109438456/e18f9cfd-8d3b-4adc-9e44-e0503ce36dff)
 ![image](https://github.com/Rahaf-Mansour/split-bill-with-a-friend/assets/109438456/e59d9f98-9266-49bf-86c1-ac34c1b3f24b)
 ![image](https://github.com/Rahaf-Mansour/split-bill-with-a-friend/assets/109438456/10802a95-239d-4145-99f5-a5d9a48abe75)
 
