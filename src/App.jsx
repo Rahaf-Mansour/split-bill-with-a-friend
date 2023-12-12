@@ -32,17 +32,18 @@ function App() {
   }
 
   function handleAddFriend(newFriend) {
-    setFriends((friends) => [...friends, newFriend])
+    setFriends((friends) => [...friends, newFriend]);
+    setShowAddFriend(false);
   }
 
-  function handleSelectedFriend(friend) {
-    setSelectedFriend(friend);
+  function handleSelectedFriend(friend) { // If we click close => set the new value of the selectedFriend back to null
+    setSelectedFriend((selectedFriend) => selectedFriend?.id === friend.id ? null : friend);
   }
 
   return (
     <div className='app'>
       <div className='sidebar'>
-        <FriendsList friends={friends} onSelection={handleSelectedFriend} />
+        <FriendsList friends={friends} onSelection={handleSelectedFriend} selectedFriend={selectedFriend} />
         {showAddFriend && <FormAddFriend onAddFriend={handleAddFriend} />}
         <Button onClick={handleShowAddFriend}> {showAddFriend ? "Close" : "Add Friend"}</Button>
       </div>
@@ -53,27 +54,28 @@ function App() {
 
 export default App;
 
-function FriendsList({ friends, onSelection }) {
+function FriendsList({ friends, onSelection, selectedFriend }) {
 
   return (
     <ul>
       {friends.map((friend) =>
-        <Friend key={friend.id} friend={friend} onSelection={onSelection} />)}
+        <Friend key={friend.id} friend={friend} onSelection={onSelection} selectedFriend={selectedFriend} />)}
     </ul>
   )
 }
 
-function Friend({ friend, onSelection }) {
+function Friend({ friend, onSelection, selectedFriend }) {
+  const isFriendSelected = selectedFriend?.id === friend.id;
 
   return (
     <>
-      <li>
+      <li className={isFriendSelected && "selected"}>
         <img src={friend.image} alt={friend.name} />
         <h3>{friend.name}</h3>
         {friend.balance < 0 && <p className='red'>You owe {friend.name} {Math.abs(friend.balance)} $</p>}
         {friend.balance > 0 && <p className='green'>{friend.name} owe you {Math.abs(friend.balance)} $</p>}
         {friend.balance === 0 && <p> You and {friend.name} are even </p>}
-        <Button onClick={() => onSelection(friend)}>Select</Button>
+        <Button onClick={() => onSelection(friend)}>{isFriendSelected ? 'Close' : 'Select'}</Button>
       </li>
     </>
   )
