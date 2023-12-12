@@ -76,7 +76,6 @@ function FormAddFriend() {
         <input type="text" />
         <Button>Add</Button>
       </form>
-      <Button>Close</Button>
     </>
   )
 }
